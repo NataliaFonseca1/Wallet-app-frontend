@@ -84,6 +84,7 @@ button.small{
  border-radius: 8px;
  width: 90px;
  height: 36px;
+ cursor:pointer;
 }
 input{
   background-color:#f4f4f9;
