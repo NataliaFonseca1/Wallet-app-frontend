@@ -14,12 +14,14 @@
 <p class = "mt small"> Insira seu e-mail para ter acesso ao Wallet app e 
   gerenciar suas finanças
 </p>
-<label class="mt" for ="input-name">Nome:</label>
+<form id="form-register" class="mt"  >
+  <label class="mt" for ="input-name">Nome:</label>
 <input class ="mt smaller" 
 id="input-name"
 placeholder="Insira seu nome"
 type="text"
 name="input-name"
+required
 />
 <label class="mt" for ="input-email">E-mail</label>
 <input class ="mt smaller" 
@@ -27,8 +29,10 @@ id="input-email"
 placeholder="email@exemplo.com"
 type="text"
 name="input-email"
+required
 />
-<button class="full-widht mt large">Cadastrar</button>
+<button type="submit" class="full-widht mt large">Cadastrar</button>
+</form>
 <a href ="../../../index.html" class="mt larger">Já tem conta? Faça login aqui.</a>
 </div>
   </div>
