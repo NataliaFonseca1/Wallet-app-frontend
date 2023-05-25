@@ -4,7 +4,8 @@ flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
 width: 100vw;
-height: 100vh;
+height: auto;
+min-height: 100vh;
 background-color: #f4f4f9;
 
 }
@@ -18,9 +19,6 @@ height: 72px;
 width: 100vw;
 background-color: #ffffff;
 position: fixed;
-top:0px;
-left: 0px;
-right: 0px;
 padding: 24px 112px;
 box-sizing: border-box;
 
@@ -30,6 +28,12 @@ box-sizing: border-box;
   width: auto;
   box-sizing: border-box;
 }
+.navbar-calendar-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 260px;
+}
 .navbar-user-container{
 display: flex;
 flex-direction: row;
@@ -37,7 +41,7 @@ align-items: center;
 justify-content: space-between;
 width: 260px;
 height: 100%;
-flex-direction: row;
+
 
 }
 .navbar-user-avatar{
@@ -48,4 +52,83 @@ flex-direction: row;
   width: 48px;
   border-radius:24px;
   background-color:#e4fde1;
+}
+
+.finance-card-container{
+display: flex;
+width: 100%;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+margin-top: 48px;
+padding: 48px 122px;
+box-sizing: border-box;
+}
+.finance-card{
+  display: flex;
+  width: 280px;
+  height: 140px;
+  flex-direction: column;
+  align-items: center;
+border-radius: 24px;
+background-color: #ffffff;
+justify-content:center;
+  
+  }
+  .table-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 122px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+    
+}
+.table-content-container{
+display:flex;
+width: 100%;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+background-color: #ffffff;
+border-radius: 24px;
+height: 592px;
+padding: 24px;
+box-sizing:border-box;
+}
+.table-content-header{
+display: flex;
+width: 100%;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding-bottom:24px;
+box-sizing: border-box;
+}
+table{
+  width: 100%;
+
+}
+th{
+text-align: left;
+color:#7c7c7c;
+}
+td{
+  color:#7c7c7c;
+}
+th.right{
+text-align: right;
+}
+
+th.center{
+text-align: center;
+}
+
+td.right{
+text-align: right;
+}
+
+td.center{
+text-align: center;
 }
