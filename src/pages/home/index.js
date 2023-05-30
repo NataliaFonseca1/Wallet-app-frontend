@@ -1,3 +1,33 @@
+const onLogout=()=>{
+  localStorage.clear();
+  window.open ("../../../index.html","_self")
+}
+
+
+
+
+const onDeleteItem = async (id) => {
+  try{
+    const email = localStorage.getItem("@WalletApp:userEmail");
+     await fetch(`https://mp-wallet-app-api.herokuapp.com/finances/${id}`,        
+    {
+      method: "DELETE",
+      headers:{
+        email: email,
+      },
+    }
+    );
+    onLoadFinancesData();
+  } catch (error){
+    alert("error ao deletar item.")
+  }
+};
+
+
+
+
+
+
 const renderFinancesList = (data) =>{
   const table = document.getElementById("finances-table");
   table.innerHTML="";
@@ -69,6 +99,8 @@ tableRow.appendChild(valueTd);
 
 //delete
 const deleteTd = document.createElement("td");
+deleteTd.onclick=()=>onDeleteItem(item.id);
+deleteTd.style.cursor="pointer";
 deleteTd.className="right";
 const deleteText = document.createTextNode("Deletar");
 deleteTd.appendChild(deleteText);
@@ -169,9 +201,9 @@ financeCard4.appendChild(balanceTextElement);
 
 const onLoadFinancesData = async () => {
   try{
-    const date = '2022-12-15';
+    const dateinputValue = document.getElementById("select-date").value;
     const email = localStorage.getItem("@WalletApp:userEmail");
-    const result=await fetch (`https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`,
+    const result=await fetch (`https://mp-wallet-app-api.herokuapp.com/finances?date=${dateinputValue}`,
   {
     method:"GET",
     headers:{
@@ -206,6 +238,8 @@ navbarUserInfo.appendChild(emailElement);
 //add logout Link
 
 const logoutElement = document.createElement("a");
+logoutElement.onclick=()=>onLogout();
+logoutElement.style.cursor="pointer";
 const logoutText= document.createTextNode("sair");
 logoutElement.appendChild(logoutText);
 navbarUserInfo.appendChild(logoutElement);
@@ -297,8 +331,19 @@ onLoadFinancesData();
   alert ("error ao adicionar novo dado financeiro");
 }
 };
+const setInitialDate = () =>{
+const dateinput = document.getElementById("select-date");
+const nowDate= new Date().toISOString().split("T")[0]
+dateinput.value = nowDate;
+dateinput.addEventListener("change", ()=> {
+  onLoadFinancesData();
+});
+};
+
+
 
 window.onload=() =>{
+  setInitialDate();
   onLoadUserInfo ();
   onLoadFinancesData();
   onLoadCategories();
