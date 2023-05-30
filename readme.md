@@ -1,4 +1,5 @@
 # Wallet App
+<img src="https://github.com/NataliaFonseca1/Wallet-app-frontend/blob/main/src/img/preview.png" alt = "Wallet Preview" height="500">
 
 ## Introduction
 
